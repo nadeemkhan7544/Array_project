@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Simple Array Project</title>
+	<link rel="stylesheet" type="text/css" href="Arrayproject.css">
+
+	<!-- Fontawwsom CDN Link -->
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+	<!-- Javascript Plugin CDN Link-->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+	<div class="full_body">
+
+		<div class="text">
+			<h2>Simple Array Project</h2>
+		</div>
+
+
+	<div class="main_div">
+
+		<div class="screen">
+			<h4 id="result">SCREEN</h4>
+		</div>
+
+	</div>
+
+	<div class="all_propreties">
+
+			<div class="enter_value">
+				<h4>Enter Number :</h4>
+				<input type="number" id="Inpvalue" placeholder="Number...">
+				<!-- <i class="fas fa-arrow-right"></i> -->
+				<i class="fas fa-arrow-circle-right" id="Arrbtn"></i>
+				<!-- <i class="far fa-plus-square fa-2x"></i>  -->
+			</div>
+
+			<div class="sss_value">
+				<button onclick="show()">Show</button>
+				<button onclick="search()">Search</button>
+				<button onclick="sortfun()">Sort</button>
+			</div>
+
+			<div class="btn_value">
+				<button onclick="greatest()">Greatest</button>
+				<button onclick="smallest()">Smallest</button>
+			</div>
+
+			<div class="exit">
+				<button onclick="window.close()">Exit</button>
+			</div>
+	</div>
+
+	</div>
+
+	<script type="text/javascript">
+		let array = [];
+		let result = document.getElementById("result");
+		let btn = document.getElementById("Arrbtn");
+
+		
+		btn.addEventListener('click',function(){
+			let text = document.getElementById('Inpvalue').value;
+				array.push(text);
+				modifyalert();
+				console.log(array)
+			})
+
+		function show(){
+			result.innerHTML = array;
+		}
+		function search(){
+			let text2 = document.getElementById('Inpvalue').value;
+			let index = array.indexOf(text2);
+
+			if(index !== -1){
+				exist()
+			}else{
+				not_exist()
+			}
+		}
+
+		function sortfun(){
+			array.sort(function(a,b){
+				return a - b;
+			})
+			result.innerHTML = array;
+		}
+
+		function greatest(){
+			let max = Math.max(...array);
+			result.innerHTML = "Max Value is:" + max;
+		}
+
+		function smallest(){
+			let min = Math.min(...array);
+			result.innerHTML = "Min Value is: " + min;
+		}
+
+		function modifyalert(){
+			swal("Good job!", "Your Number is Added Successfully", "success");
+		}
+		function modifyalert2(){
+			swal("Good job!", "Your Number is Added Successfully", "error");
+		}
+
+		function exist(){
+			swal("Wooow (•‿•)", "Your Value is Exist", "success");
+		}
+		function not_exist(){
+			swal("ohoo (ಠ_ಠ)","Your Value is Not Exist", "error");
+		}
+
+		
+
+	</script>
+
+</body>
+</html>
